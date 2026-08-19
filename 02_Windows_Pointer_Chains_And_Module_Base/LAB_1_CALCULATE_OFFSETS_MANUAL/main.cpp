@@ -15,25 +15,25 @@ int main() {
 
   // Từ địa chỉ của g_Manager ta có thể thêm các offset để truy cập hai biến:
   std::vector<uintptr_t> hp_offsets = std::vector<uintptr_t>({
-    0x00, // 0byte    int      game_state
+    0x00, // 4byte    int      game_state
     0x08, // 8byte    Player*  local_player
     // Truy cập giá trị của local_player để lấy địa chỉ của dữ liệu
     // local_player sau đó tiếp tục công pffset
     0x20, // 32byte   Stats*   stats
     // Truy cập giá trị của stats để lấy địa chỉ của dữ liệu
     // stats sau đó tiếp tục công pffset
-    0x00  // 0byte    int      hp
+    0x00  // 4byte    int      hp
   });
 
   std::vector<uintptr_t> gold_offsets = std::vector<uintptr_t>({
-    0x00, // 0byte    int      game_state
+    0x00, // 4byte    int      game_state
     0x08, // 8byte    Player*  local_player
     // Truy cập giá trị của local_player để lấy địa chỉ của dữ liệu
     // local_player sau đó tiếp tục công pffset
     0x20, // 32byte   Stats*   stats
     // Truy cập giá trị của stats để lấy địa chỉ của dữ liệu
     // stats sau đó tiếp tục công pffset
-    0x00, // 0byte    int      hp
+    0x00, // 4byte    int      hp
     0x0C  // 12byte   int      gold
   });
 
