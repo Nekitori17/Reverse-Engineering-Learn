@@ -25,15 +25,21 @@ int main() {
 
     ReadProcessMemory(hProcess, (LPCVOID)g_GameManagerPtr_ptr, &current_ptr,
     sizeof(current_ptr), NULL);
-    
+    if (current_ptr == 0)
+      continue;
+
     uintptr_t local_playerPtr_ptr = current_ptr + 0x08;
     ReadProcessMemory(hProcess, (LPCVOID)local_playerPtr_ptr, &current_ptr,
                       sizeof(current_ptr), NULL);
+    if (current_ptr == 0)
+      continue;
 
     uintptr_t statsPtr_ptr = current_ptr + 0x20;
 
     ReadProcessMemory(hProcess, (LPCVOID)statsPtr_ptr, &current_ptr,
                       sizeof(current_ptr), NULL);
+    if (current_ptr == 0)
+      continue;
 
     uintptr_t hp_ptr = current_ptr + 0x0;
     uintptr_t gold_ptr = current_ptr + 0x0C;
